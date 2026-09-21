@@ -12,7 +12,9 @@ properties:
     required: true
 
   clocks:
-    required: true
+    description: |
+      Clock gate to enable before the peripheral is used. Required on the
+      ch32v family; the CH5xx block is fed from a fixed clock and omits it.
 
   interrupts:
     required: true
