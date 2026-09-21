@@ -208,6 +208,12 @@ static inline uint32_t ifx_uart_divider(uint32_t freq, uint32_t baud, uint32_t o
 	return (freq + ((baud * oversample) / 2U)) / (baud * oversample);
 }
 
+/*
+ * Only the MEM_WIDTH form of the block has this field; older blocks such as
+ * M0S8SCB select byte mode through SCB_CTRL_BYTE_MODE instead. Keep the guard
+ * in sync with the one around the SCB_CTRL assignment below.
+ */
+#if (CY_IP_MXSCB_VERSION >= 2) || (CY_IP_MXS22SCB_VERSION >= 1)
 static inline uint32_t ifx_uart_mem_width(uint32_t data_width)
 {
 #if defined(CONFIG_SOC_FAMILY_INFINEON_PSOC4)
@@ -218,6 +224,7 @@ static inline uint32_t ifx_uart_mem_width(uint32_t data_width)
 						 : CY_SCB_MEM_WIDTH_HALFWORD;
 #endif
 }
+#endif
 
 cy_rslt_t ifx_cat1_uart_set_baud(const struct device *dev, uint32_t baudrate)
 {
