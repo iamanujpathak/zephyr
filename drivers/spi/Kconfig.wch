@@ -7,3 +7,10 @@ config SPI_WCH
 	depends on DT_HAS_WCH_SPI_ENABLED
 	help
 	  Enable the SPI peripherals on CH32s
+
+config SPI_WCH_CH5XX
+	bool "WCH CH5xx SPI Controller"
+	default y
+	depends on DT_HAS_WCH_CH5XX_SPI_ENABLED
+	help
+	  Enable the SPI peripherals on CH5xx

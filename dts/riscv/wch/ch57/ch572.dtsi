@@ -8,6 +8,16 @@
 
 / {
 	soc {
+		spi0: spi@40004000 {
+			compatible = "wch,ch5xx-spi";
+			reg = <0x40004000 0x24>;
+			interrupt-parent = <&pfic>;
+			interrupts = <19>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "disabled";
+		};
+
 		usb: usb@40008000 {
 			compatible = "wch,ch5xx-usb";
 			reg = <0x40008000 0x70>;
