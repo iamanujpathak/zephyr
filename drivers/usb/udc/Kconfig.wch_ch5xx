@@ -1,0 +1,26 @@
+# Copyright (c) 2026 BIII Tech LLP.
+# SPDX-License-Identifier: Apache-2.0
+
+config UDC_WCH_CH5XX
+	bool "WCH CH5xx USB Device Controller"
+	default y
+	depends on DT_HAS_WCH_CH5XX_USB_ENABLED
+	select EVENTS
+	help
+	  Enable WCH CH5xx USB full-speed device controller driver.
+
+if UDC_WCH_CH5XX
+
+config UDC_WCH_CH5XX_STACK_SIZE
+	int "UDC controller driver thread stack size"
+	default 1024
+	help
+	  WCH CH5xx USB device controller driver thread stack size.
+
+config UDC_WCH_CH5XX_THREAD_PRIORITY
+	int "UDC controller driver thread priority"
+	default 8
+	help
+	  WCH CH5xx USB device controller driver thread priority.
+
+endif # UDC_WCH_CH5XX

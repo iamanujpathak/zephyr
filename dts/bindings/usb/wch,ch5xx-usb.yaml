@@ -1,0 +1,15 @@
+# Copyright (c) 2026 BIII Tech LLP.
+# SPDX-License-Identifier: Apache-2.0
+
+description: WCH CH5xx USB Full-Speed Device Controller
+
+compatible: "wch,ch5xx-usb"
+
+include: usb-ep.yaml
+
+properties:
+  reg:
+    required: true
+
+  interrupts:
+    required: true
