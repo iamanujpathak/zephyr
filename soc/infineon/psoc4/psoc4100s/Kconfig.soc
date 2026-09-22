@@ -1,0 +1,22 @@
+# Copyright (c) 2025 Infineon Technologies AG,
+# or an affiliate of Infineon Technologies AG.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# MCU series
+config SOC_SERIES_PSOC4100S
+	bool
+	select SOC_FAMILY_INFINEON_PSOC4
+	help
+	  PSOC4100S Series MCU
+
+config SOC_SERIES
+	default "psoc4100s" if SOC_SERIES_PSOC4100S
+
+config SOC_CY8C4146AZI_S433
+	bool
+	select SOC_SERIES_PSOC4100S
+
+# Default SOC selection
+config SOC
+	default "cy8c4146azi_s433" if SOC_CY8C4146AZI_S433

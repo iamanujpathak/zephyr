@@ -1,0 +1,27 @@
+# Copyright (c) 2025 Infineon Technologies AG,
+# or an affiliate of Infineon Technologies AG.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# SOC Packages for Infineon PSOC4100S series MCUs
+config SOC_PACKAGE_PSOC4100S_40_VQFN
+	bool
+	help
+	  40-pin VQFN package
+
+# Hardware configuration for PSOC4100S series
+config SOC_SERIES_PSOC4100S
+	select ARM
+	select CPU_CORTEX_M0PLUS
+	select CPU_HAS_ARM_MPU
+	select CPU_CORTEX_M_HAS_VTOR
+	select BUILD_OUTPUT_HEX
+	select BUILD_OUTPUT_BIN
+	select DYNAMIC_INTERRUPTS
+	select SOC_EARLY_INIT_HOOK
+	select CPU_CORTEX_M_HAS_SYSTICK
+	select HAS_SEGGER_RTT
+
+# Infineon PSOC4100S series MPNs
+config SOC_CY8C4146AZI_S433
+	select SOC_PACKAGE_PSOC4100S_40_VQFN
