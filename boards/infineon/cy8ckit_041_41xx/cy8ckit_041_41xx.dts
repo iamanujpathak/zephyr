@@ -1,0 +1,61 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 Infineon Technologies AG,
+ * SPDX-FileCopyrightText: or an affiliate of Infineon Technologies AG. All rights reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <arm/infineon/psoc4/mpns/cy8c4146azi_s433.dtsi>
+#include <arm/infineon/psoc4/psoc4100s/system_clocks.dtsi>
+
+#include "cy8ckit_041_41xx_common.dtsi"
+
+/ {
+	model = "CY8CKIT-041-41XX Pioneer Kit";
+	compatible = "infineon,cy8ckit-041-41xx", "infineon,psoc4100s";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,console = &uart2;
+		zephyr,shell-uart = &uart2;
+	};
+
+	aliases {
+		led0 = &led_red;
+		led1 = &led_green;
+		led2 = &led_blue;
+		sw0 = &user_button;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		status = "okay";
+
+		led_red: led_0 {
+			label = "LED5 Red";
+			gpios = <&gpio_prt3 4 GPIO_ACTIVE_LOW>;
+		};
+
+		led_green: led_1 {
+			label = "LED5 Green";
+			gpios = <&gpio_prt2 6 GPIO_ACTIVE_LOW>;
+		};
+
+		led_blue: led_2 {
+			label = "LED5 Blue";
+			gpios = <&gpio_prt3 6 GPIO_ACTIVE_LOW>;
+		};
+	};
+
+	gpio_keys {
+		compatible = "gpio-keys";
+
+		user_button: button_0 {
+			label = "SW2";
+			gpios = <&gpio_prt0 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_0>;
+		};
+	};
+};

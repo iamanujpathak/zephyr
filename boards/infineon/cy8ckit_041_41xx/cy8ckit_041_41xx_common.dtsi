@@ -1,0 +1,52 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 Infineon Technologies AG,
+ * SPDX-FileCopyrightText: or an affiliate of Infineon Technologies AG. All rights reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include "cy8ckit_041_41xx-pinctrl.dtsi"
+
+/*
+ * Both KitProg bridges are on SCB1-routable pins, but the I2C pins reach SCB1
+ * only, so the UART bridge takes SCB2 to leave SCB1 free for I2C.
+ */
+uart2: &scb2 {
+	compatible = "infineon,uart";
+	status = "okay";
+	current-speed = <115200>;
+	clocks = <&peri_clk_div0>;
+	pinctrl-0 = <&p0_5_scb2_uart_tx &p0_4_scb2_uart_rx>;
+	pinctrl-names = "default";
+};
+
+i2c1: &scb1 {
+	compatible = "infineon,i2c";
+	status = "disabled";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clocks = <&peri_clk_div1>;
+	pinctrl-0 = <&p3_0_scb1_i2c_scl &p3_1_scb1_i2c_sda>;
+	pinctrl-names = "default";
+};
+
+&peri_clk_div0 {
+	status = "okay";
+};
+
+&peri_clk_div1 {
+	status = "okay";
+};
+
+&gpio_prt0 {
+	status = "okay";
+};
+
+&gpio_prt2 {
+	status = "okay";
+};
+
+&gpio_prt3 {
+	status = "okay";
+};

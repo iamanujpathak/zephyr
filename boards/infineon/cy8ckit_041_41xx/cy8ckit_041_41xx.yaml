@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 Infineon Technologies AG,
+# SPDX-FileCopyrightText: or an affiliate of Infineon Technologies AG. All rights reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: cy8ckit_041_41xx
+name: CY8CKIT-041-41XX Pioneer Kit
+type: mcu
+arch: arm
+ram: 8
+flash: 64
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - clock_control
+  - gpio
+  - i2c
+  - pinctrl
+  - uart
+vendor: infineon
