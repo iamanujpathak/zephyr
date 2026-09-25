@@ -482,6 +482,15 @@
 #endif
 #endif
 
+#if defined(CONFIG_SOC_CY8C4146LQI_S423)
+#ifndef CY8C4146LQI_S423
+#define CY8C4146LQI_S423
+#endif
+#ifndef CY8C4146LQI_S423_
+#define CY8C4146LQI_S423_
+#endif
+#endif
+
 #endif /* CONFIG_SOC_SERIES_PSOC4100S */
 
 #if defined(CONFIG_SOC_FAMILY_INFINEON_CAT1C)

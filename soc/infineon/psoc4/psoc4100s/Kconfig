@@ -9,6 +9,11 @@ config SOC_PACKAGE_PSOC4100S_48_TQFP
 	help
 	  48-pin TQFP package
 
+config SOC_PACKAGE_PSOC4100S_40_QFN
+	bool
+	help
+	  40-pin QFN package
+
 # Hardware configuration for PSOC4100S series
 config SOC_SERIES_PSOC4100S
 	select ARM
@@ -25,3 +30,6 @@ config SOC_SERIES_PSOC4100S
 # Infineon PSOC4100S series MPNs
 config SOC_CY8C4146AZI_S433
 	select SOC_PACKAGE_PSOC4100S_48_TQFP
+
+config SOC_CY8C4146LQI_S423
+	select SOC_PACKAGE_PSOC4100S_40_QFN

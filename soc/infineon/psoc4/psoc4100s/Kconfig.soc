@@ -17,6 +17,11 @@ config SOC_CY8C4146AZI_S433
 	bool
 	select SOC_SERIES_PSOC4100S
 
+config SOC_CY8C4146LQI_S423
+	bool
+	select SOC_SERIES_PSOC4100S
+
 # Default SOC selection
 config SOC
 	default "cy8c4146azi_s433" if SOC_CY8C4146AZI_S433
+	default "cy8c4146lqi_s423" if SOC_CY8C4146LQI_S423

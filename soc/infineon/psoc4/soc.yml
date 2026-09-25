@@ -94,3 +94,4 @@ family:
   - name: psoc4100s
     socs:
     - name: cy8c4146azi_s433
+    - name: cy8c4146lqi_s423
