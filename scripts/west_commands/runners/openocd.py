@@ -229,7 +229,7 @@ class OpenOcdBinaryRunner(ZephyrBinaryRunner):
                             help=f'''Internal handle used in openocd targets cfg
                             files, defaults to "{DEFAULT_OPENOCD_TARGET_HANDLE}".
                             ''')
-        parser.add_argument('--rtt-port', default=DEFAULT_OPENOCD_RTT_PORT,
+        parser.add_argument('--rtt-port', default=DEFAULT_OPENOCD_RTT_PORT, type=int,
                             help='openocd rtt port, defaults to 5555')
         parser.add_argument('--rtt-server', default=False, action='store_true',
                             help='''start the RTT server while debugging.
