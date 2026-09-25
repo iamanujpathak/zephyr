@@ -48,7 +48,7 @@ LOG_MODULE_REGISTER(ifx_sar_adc, CONFIG_ADC_LOG_LEVEL);
 #define IFX_SAR_10BIT_MASK 0x03FFU  /* 1023 - maximum 10-bit value */
 #define IFX_SAR_8BIT_MASK  0x00FFU  /* 255 - maximum 8-bit value */
 
-/* SAR v2 hardware compensation factor for single-ended unsigned mode */
+/* SAR v1-v3 hardware compensation factor for single-ended unsigned mode */
 #define IFX_SAR_V2_COMPENSATION_FACTOR 2U
 
 #define IFX_SAR_MAX_PIN_NUM        64U /* Board total pins 0-63 */
@@ -1044,10 +1044,9 @@ static void ifx_sar_isr(const struct device *dev)
 								? IFX_SAR_10BIT_MASK
 								: IFX_SAR_8BIT_MASK;
 					result = (uint16_t)raw & mask;
-#if (defined(CY_IP_M0S8PASS4A_SAR_VERSION) && \
-	 ((CY_IP_M0S8PASS4A_SAR_VERSION == 2U) || (CY_IP_M0S8PASS4A_SAR_VERSION == 3U)))
+#if (defined(CY_IP_M0S8PASS4A_SAR_VERSION) && (CY_IP_M0S8PASS4A_SAR_VERSION <= 3U))
 					/*
-					 * SAR v2/v3 hardware limitation: single-ended channels
+					 * SAR v1-v3 hardware limitation: single-ended channels
 					 * always output signed 12-bit values (max 2047) regardless
 					 * of the SINGLE_ENDED_SIGNED register bit setting. When
 					 * configured for unsigned mode, compensate by doubling
