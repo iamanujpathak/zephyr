@@ -136,6 +136,25 @@
 			status = "disabled";
 		};
 
+		ctbm0: ctbm@40300000 {
+			compatible = "infineon,ctbm";
+			reg = <0x40300000 0x10000>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			opamp0: opamp@0 {
+				compatible = "infineon,ctbm-opamp";
+				reg = <0>;
+				status = "disabled";
+			};
+
+			opamp1: opamp@1 {
+				compatible = "infineon,ctbm-opamp";
+				reg = <1>;
+				status = "disabled";
+			};
+		};
+
 		tcpwm0: tcpwm0@40060000 {
 			reg = <0x40060000 0x240>;
 			#address-cells = <1>;
