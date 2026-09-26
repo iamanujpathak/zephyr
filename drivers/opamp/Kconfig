@@ -20,6 +20,7 @@ config OPAMP_INIT_PRIORITY
 
 # zephyr-keep-sorted-start
 rsource "Kconfig.infineon_autanalog_ctb"
+rsource "Kconfig.infineon_ctbm"
 rsource "Kconfig.mcux_opamp"
 rsource "Kconfig.mcux_opamp_fast"
 rsource "Kconfig.stm32_opamp"

@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 Infineon Technologies AG,
+# SPDX-FileCopyrightText: or an affiliate of Infineon Technologies AG. All rights reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Infineon M0S8 CTBm opamp, found in PSOC 4 devices.
+
+  Each node describes one of the two opamps of a CTBm block, whose parent node
+  holds the block base address. The inputs use the dedicated CTBm pins:
+  OA0 non-inverting on pin 0 and inverting on pin 1 of the CTBm port, OA1
+  non-inverting on pin 5 and inverting on pin 4. With out-to-pin, the output
+  drives the dedicated pin (pin 2 for OA0, pin 3 for OA1) with the 10x output
+  stage.
+
+  Supported functional modes are "standalone", where external resistors set
+  the gain, and "follower", where the inverting input is connected to the
+  output internally.
+
+compatible: "infineon,ctbm-opamp"
+
+include:
+  - name: opamp-controller.yaml
+
+properties:
+  reg:
+    required: true
+    description: Opamp index within the CTBm block (0 or 1).
+
+  power-mode:
+    type: string
+    default: "medium"
+    enum:
+      - "low"
+      - "medium"
+      - "high"
+    description: |
+      Opamp power level, trading current consumption for bandwidth and output
+      drive.
+
+  out-to-pin:
+    type: boolean
+    description: |
+      Drive the dedicated output pin with the 10x output stage, needed when
+      external components are connected to the output.
