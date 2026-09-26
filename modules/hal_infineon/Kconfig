@@ -21,6 +21,11 @@ config USE_INFINEON_ADC
 	help
 	  Enable Analog-to-Digital Converter (ADC) HAL module driver for Infineon devices
 
+config USE_INFINEON_CTB
+	bool
+	help
+	  Enable Continuous Time Block (CTB) opamp PDL driver for Infineon devices
+
 config USE_INFINEON_LPCOMP
 	bool
 	help

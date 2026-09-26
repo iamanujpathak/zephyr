@@ -31,6 +31,7 @@ zephyr_library_sources(${pdl_drv_dir}/source/COMPONENT_CM0P/TOOLCHAIN_GCC_ARM/cy
 
 # Peripheral drivers
 zephyr_library_sources_ifdef(CONFIG_USE_INFINEON_ADC ${pdl_drv_dir}/source/cy_sar.c)
+zephyr_library_sources_ifdef(CONFIG_USE_INFINEON_CTB ${pdl_drv_dir}/source/cy_ctb.c)
 zephyr_library_sources_ifdef(CONFIG_USE_INFINEON_I2C ${pdl_drv_dir}/source/cy_scb_i2c.c)
 zephyr_library_sources_ifdef(CONFIG_USE_INFINEON_SPI ${pdl_drv_dir}/source/cy_scb_spi.c)
 zephyr_library_sources_ifdef(CONFIG_USE_INFINEON_TIMER ${pdl_drv_dir}/source/cy_tcpwm_counter.c)
