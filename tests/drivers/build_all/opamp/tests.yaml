@@ -24,3 +24,9 @@ tests:
   drivers.opamp.build.infineon_ctb:
     platform_allow:
       - kit_pse84_eval/pse846gps2dbzc4a/m55
+  drivers.opamp.build.infineon_ctbm:
+    min_ram: 8
+    extra_configs:
+      - CONFIG_OPAMP=y
+    platform_allow:
+      - cy8ckit_041_41xx
